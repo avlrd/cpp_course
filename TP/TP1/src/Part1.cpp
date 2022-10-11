@@ -1,4 +1,4 @@
-#include "Part1.h"
+#include "../inc/Part1.h"
 
 int sum(int a, int b)
 {
@@ -42,7 +42,32 @@ void displayTab(int tab[], int size)
 	}
 }
 
-void sort(int tab[], int size)
+void sortUp(int tab[], int size)
 {
+	for (int i = 1; i < size; i++)
+	{
+		while (tab[i] < tab[i - 1] && i > 0)
+		{
+			swap(tab[i], tab[i - 1]);
+			i--;
+		}
+	}
+}
 
+void sortDown(int tab[], int size)
+{
+	for (int i = size - 2; i >= 0; i--)
+	{
+		while (tab[i] < tab[i + 1] && i < size - 1)
+		{
+			swap(tab[i], tab[i + 1]);
+			i++;
+		}
+	}
+}
+
+void reverseTab(int tab[], int size)
+{
+	for (int i = 0; i < size/2+1; i++)
+		swap(tab[i], tab[size - i - 1]);
 }
