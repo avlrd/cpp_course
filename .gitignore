@@ -1,5 +1,6 @@
-TP/TP1/.vs
+pdf
+*.vs
 x64
-TP1.vcxproj
-TP1.vcxproj.filters
-TP1.vcxproj.user
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
