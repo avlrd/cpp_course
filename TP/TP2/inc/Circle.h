@@ -7,61 +7,30 @@
 class Circle
 {
 	private:
-		int diameter;
+		double diameter;
 		Point center;
 
 	public:
-		/*
-		* @brief Constructor
-		*/
-		Circle(int diameter, Point center);
+		
+		Circle(double diameter, Point center) : diameter(diameter), center(center) {}
 
-		/*
-		* @brief Destructor
-		*/
 		~Circle();
 
-		/*
-		* @brief Sets the diameter of the circle.
-		* @param int d
-		*/
-		inline void setDiameter(int d) { diameter = d; }
+		inline void setDiameter(double d) { diameter = d; }
 
-		/*
-		* @brief Sets the center of the circle.
-		* @param Point p
-		*/
 		void setCenter(Point p) { center = p; }
 
-		/*
-		* @brief Returns the diameter of the circle.
-		*/
-		inline int getDiameter() const { return diameter; }
+		inline double getDiameter() const { return diameter; }
 
-		/*
-		* @brief Returns the center of the circle.
-		*/
 		Point getCenter() const { return center; }
 
-		/*
-		* @brief Returns the perimeter of the circle.
-		*/
-		inline float perimeter() const { return PI * diameter; }
+		inline double perimeter() const { return PI * diameter; }
 
-		/*
-		* @brief Returns the area of the circle.
-		*/
-		inline float area() const { return PI * (diameter / 2) * (diameter / 2); }
+		inline double area() const { return PI * (diameter / 2) * (diameter / 2); }
 
-		/*
-		* @brief Checks if the point is on this circle.
-		* @param Point p
-		*/
 		bool isOn(Point p);
 
-		/*
-		* @brief Checks if the point is in the circle (strictly).
-		* @param Point p
-		*/
 		bool isIn(Point p);
+
+		void afficher();
 };

@@ -1,10 +1,11 @@
 #pragma once
 #include <cmath>
+#include <iostream>
 
 struct Point
 {
-	float x;
-	float y;
+	double x;
+	double y;
 };
 
-float distance(Point p1, Point p2);
+double distance(Point p1, Point p2);

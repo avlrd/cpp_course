@@ -1,11 +1,5 @@
 #include "../inc/Circle.h"
 
-Circle::Circle(int diameter, Point center)
-{
-	this->diameter = diameter;
-	this->center = center;
-}
-
 Circle::~Circle()
 {
 	delete& center;
@@ -13,7 +7,7 @@ Circle::~Circle()
 
 bool Circle::isOn(Point p)
 {
-	float distance = sqrt(pow(p.x - center.x, 2) + pow(p.y - center.y, 2));
+	double distance = sqrt(pow(p.x - center.x, 2) + pow(p.y - center.y, 2));
 
 	if (distance == diameter / 2)
 		return true;
@@ -23,10 +17,18 @@ bool Circle::isOn(Point p)
 
 bool Circle::isIn(Point p)
 {
-	float distance = sqrt(pow(p.x - center.x, 2) + pow(p.y - center.y, 2));
+	double distance = sqrt(pow(p.x - center.x, 2) + pow(p.y - center.y, 2));
 
 	if (distance < diameter / 2)
 		return true;
 	else
 		return false;
+}
+
+void Circle::afficher()
+{
+	std::cout << "Center: (" << center.x << ", " << center.y << ")" << std::endl;
+	std::cout << "Diameter: " << diameter << std::endl;
+	std::cout << "" << std::endl;
+	std::cout << "Options :\n\tGetters/Setters\n\tAire\n\tPérimètre\n\tPoint sur ou dans le cercle" << std::endl;
 }

@@ -1,12 +1,5 @@
 #include "../inc/Rectangle.h"
 
-Rectangle::Rectangle(const int height, const int width, const Point origin)
-{
-	this->height = height;
-	this->width = width;
-	this->origin = origin;
-}
-
 Rectangle::~Rectangle()
 {
 	delete &origin;
@@ -27,3 +20,12 @@ bool Rectangle::hasBiggerArea(Rectangle r)
 }
 
 
+void Rectangle::afficher()
+{
+	std::cout << "Rectangle: " << std::endl;
+	std::cout << "Height: " << height << std::endl;
+	std::cout << "Width: " << width << std::endl;
+	std::cout << "Origin: " << origin.x << " " << origin.y << std::endl;
+	std::cout << "" << std::endl;
+	std::cout << "Options :\n\tPérimètre\n\tAire\n\tComparaisons entre 2 rectangles" << std::endl;
+}
