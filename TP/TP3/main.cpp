@@ -5,14 +5,14 @@
 
 //Mode multi ou solo vs ia
 //menu principal
-#include <iostream>
+#include "inc/Game.h"
 
 int main()
 {
 	bool run = true;
 	while (run)
 	{
-		std::cout << "Bonjour\n";
+		std::cout << "Game started...\n";
 		run = false;
 	}
 	return 0;
