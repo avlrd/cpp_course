@@ -49,11 +49,6 @@ double Triangle::base()
 		return p3p1;
 }
 
-double Triangle::height()
-{
-	return (2 * area()) / base();
-}
-
 void Triangle::afficher()
 {
 	std::cout << "Triangle: " << std::endl;
