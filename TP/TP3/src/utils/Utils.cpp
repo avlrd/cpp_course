@@ -76,9 +76,11 @@ void end_screen(int& symbol, int& winner)
 	else
 		std::cout << "Défaite...\n";
 
+	
 	char ask;
 	std::cout << "Voulez vous rejouer ? (Y/n)\n";
 	std::cin >> ask;
-	std::cout << "Malheureusement, cette fonctionnalité ainsi que le jeu de Puissance 4 ne sont pas implémentées " <<
-		"pour cause de mauvaise gestion de mon temps.\n";
+	
+	if (ask == 'n')
+		return;
 }

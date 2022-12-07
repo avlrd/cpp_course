@@ -24,12 +24,17 @@ int Grid::get_element(int x, int y)
 
 int Grid::get_element_by_index(int index)
 {
-	int x = index / elements.size();
+	int x = index / elements[0].size();
 	int y = index % elements.size();
 	return elements[x][y];
 }
 
-void Grid::set_element(int index, int value)
+void Grid::set_element(int x, int y, int value)
+{
+	elements[x][y] = value;
+}
+
+void Grid::set_element_by_index(int index, int value)
 {
 	for(int i = 0; i < elements.size(); i++)
 	{
@@ -54,6 +59,7 @@ int Grid::get_height()
 
 void Grid::display()
 {
+	int index = 0;
 	for(int i = 0; i < elements.size(); i++)
 	{
 		for(int k = 0; k < elements[i].size()*2+1; k++)
@@ -62,6 +68,7 @@ void Grid::display()
 		for(int j = 0; j < elements[i].size(); j++)
 		{
 			std::cout << "|";
+			
 			switch(elements[i][j])
 			{
 				case 0:

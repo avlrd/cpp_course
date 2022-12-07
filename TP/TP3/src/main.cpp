@@ -21,7 +21,7 @@ int main()
 			break;
 			
 		case 2:
-			//game = new Puissance4(new Grid(6, 7));
+			game = new Puissance4();
 			break;
 	}
 

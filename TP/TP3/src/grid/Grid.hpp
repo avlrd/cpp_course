@@ -14,7 +14,8 @@ class Grid
 
 		int get_element(int x, int y);
 		int get_element_by_index(int index);
-		void set_element(int index, int value);
+		void set_element(int x, int y, int value);
+		void set_element_by_index(int index, int value);
 		
 		int get_width();
 		int get_height();

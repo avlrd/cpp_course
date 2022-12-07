@@ -36,11 +36,20 @@ void Morpion::play_solo(int& symbol)
 {
 	bool player_win = false;
 	int winner;
+	bool ia = false;
 	while (!player_win)
 	{
 		display_grid();
-		saisir_case(symbol);
-		tour_ia(symbol);
+		if (ia)
+		{
+			tour_ia(symbol);
+			ia = true;
+		}
+		else
+		{
+			saisir_case(symbol);
+			ia = false;
+		}
 		check_win(player_win, winner);
 	}
 	end_screen(symbol, winner);
@@ -80,7 +89,7 @@ void Morpion::saisir_case(int& symbol)
 		else
 			safe = 1;
 	}
-	grid->set_element(s-1, symbol);
+	grid->set_element_by_index(s-1, symbol);
 }
 
 void Morpion::tour_ia(int& symbol)
@@ -93,7 +102,7 @@ void Morpion::tour_ia(int& symbol)
 		if (grid->get_element_by_index(s) == 0)
 			safe = 1;
 	}
-	grid->set_element(s, symbol);
+	grid->set_element_by_index(s, symbol);
 }
 
 void Morpion::display_grid()
