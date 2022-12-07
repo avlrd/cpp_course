@@ -112,7 +112,7 @@ Ce principe n'est pas respecté dans notre code. Pour y remedier, nous pourrions
 
 Ce principe, qui consiste à intégrer la logique d'un objet à l'intérieur de lui-même (tell), et non pas de l'effectuer en dehors (ask), est totalement respecté, ce qui permet de ne pas écrire plusieurs fois la même portion de code (ce qui serait, de plus, en violation du principe DRY (don’t repeat yourself))
 
-Par exemple, cette logique est implémentée dans une fonction dédiée dans l'objet Puissance4 : 
+Par exemple, cette logique est implémentée dans une fonction dédiée dans l'objet ```Puissance4``` : 
 
 ```cpp
 void Puissance4::play_solo(int& symbol)
