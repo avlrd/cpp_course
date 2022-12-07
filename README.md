@@ -100,4 +100,7 @@ Cette implémentation, nécessitant également une révision des classes les uti
 
 > Une classe doit dépendre de son abstraction, pas de son implémentation.
 
-Ce principe est ici ignoré. Par exemple, on pourrait imaginer une interface utilisée par la classe ```Game```, lui permettant d'utiliser les grilles.
+Ce principe est ici ignoré. Par exemple, on pourrait imaginer une interface utilisée par la classe ```Game```, lui permettant d'utiliser les grilles. Une telle implémentation est parfaitement adaptée pour cette situation, où nous aurions beaucoup de modes de jeu implémentant les grilles.
+
+### Tell don't ask
+
