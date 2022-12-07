@@ -4,17 +4,21 @@
 
 > Alexandre Robert et Arthur Villard
 
-Dans ce rapport, nous alons discuter de la solidité, du respect des principes SOLID du TP3.
+### Introduction
 
-Je tiens tout d'abord à préciser que je n'ai pas réussi à produire un code satisfaisant les consignes du TP. Ainsi, nous commenterons en conséquence le code et discuterons de son adaptation même si il n'est pas abouti.
+Dans ce rapport, nous allons discuter de la solidité, du respect des principes SOLID du TP3.
+
+Nous tenons à tout d'abord à préciser que nous n'avons pas réussi à produire un code satisfaisant complètement les consignes du TP. Ainsi, nous commenterons en conséquence le code et discuterons de son adaptation même si il n'est pas abouti.
+
+Nous avons décidé de prendre le TP3 d'Arthur pour le refactoriser et effectuer ce code review car celui d'Alexandre a été conçu d'une manière plus compliquée, qui nous aurais pris plus de temps à comprendre et refactoriser.
 
 ### S - Single responsibility principle
 
 > Une classe ne doit avoir qu'une seule responsabilité, qu'un seul rôle.
 
 Dans un premier temps, discutons de la répartition en classes.  
-Une classe ```Grid``` permettant de représenter une grille de jeu est parfaitement adaptée ici car elle ne comprend uniquement des méthodes concernant la grille en elle même. Elle permet une adaptation en différents modes de jeux. Cette classe respecte le principle de responsabilité unique.  
-Ensuite, pour les classes ```Morpion``` et ```Puissance4```, elles héritent toutes deux de la classe ```Game```. Ainsi, on peut étendre n'importe quel type de jeu qui utilise une grille de cases. Elles respectent le principe dans la mesure où elles s'occupent de la logique du jeu. Cependant, on pourrait le discuter pour les méthodes ```run``` et ```display_grid```. On peut imaginer utiliser directement la méthode ```display``` de ```Grid```, et d'implémenter une méthode ```run``` dans une autre classe s'occupant de la logique de l'application et non du jeu, dans l'esprit d'un menu qui appelle gère différents jeux.  
+Une classe ```Grid``` permettant de représenter une grille de jeu est parfaitement adaptée ici car elle ne comprend uniquement des méthodes concernant la grille en elle-même. Elle permet une adaptation en différents modes de jeux. Cette classe respecte le principle de responsabilité unique.  
+Ensuite, pour les classes ```Morpion``` et ```Puissance4```, elles héritent toutes deux de la classe ```Game```. Ainsi, on peut étendre n'importe quel type de jeu qui utilise une grille de cases. Elles respectent le principe dans la mesure où elles s'occupent de la logique du jeu. Cependant, on pourrait le discuter pour les méthodes ```run``` et ```display_grid```. On peut imaginer utiliser directement la méthode ```display``` de ```Grid```, et d'implémenter une méthode ```run``` dans une autre classe s'occupant de la logique de l'application et non du jeu, dans l'esprit d'un menu qui gère différents jeux.  
 
 ### O - Open/Closed principle
 
@@ -41,7 +45,7 @@ Ce problème peut se retrouver dans différentes méthodes de logique des jeux, 
 
 ### L - Liskov’s substitution principle
 
-> Les objets doivent être remplacables par des instances de leur sous-type sans altérer le bon fonctionnement du programme.
+> Les objets doivent être remplaçables par des instances de leur sous-type sans altérer le bon fonctionnement du programme.
 
 Ce programme respecte ce principe, il est possible de remplacer toute instance de ```Game``` par ```Morpion``` ou ```Puissance4``` comme l'illustre cet exemple :
 
@@ -61,7 +65,7 @@ case 2:
 
 > Aucun programme ne devrait implémenter des méthodes qu'il n'utilise pas.
 
-Dans ce programme, il y a plusieurs problème liés à ce principe. Premièrement, le fichier ```Utils.hpp``` fournit des méthodes diverses n'étant pas forcément liées. Ainsi, certaines classes incluent des méthodes qu'elles n'utilisent pas. Ce problème pourrait être reglé en implémentant des interfaces, bien nommées et organisées en fonction de leur utilisation/apport.
+Dans ce programme, il y a plusieurs problèmes liés à ce principe. Premièrement, le fichier ```Utils.hpp``` fournit des méthodes diverses n'étant pas forcément liées. Ainsi, certaines classes incluent des méthodes qu'elles n'utilisent pas. Ce problème pourrait être réglé en implémentant des interfaces, bien nommées et organisées en fonction de leur utilisation/apport.
 
 Voici notre proposition de correction :
 
@@ -100,7 +104,42 @@ Cette implémentation, nécessitant également une révision des classes les uti
 
 > Une classe doit dépendre de son abstraction, pas de son implémentation.
 
-Ce principe est ici ignoré. Par exemple, on pourrait imaginer une interface utilisée par la classe ```Game```, lui permettant d'utiliser les grilles. Une telle implémentation est parfaitement adaptée pour cette situation, où nous aurions beaucoup de modes de jeu implémentant les grilles.
+Ce principe n'est pas respecté dans notre code. Pour y remedier, nous pourrions par exemple mettre en place une interface utilisée par la classe ```Game```, lui permettant d'utiliser les grilles. Une telle implémentation est parfaitement adaptée pour cette situation, où nous aurions beaucoup de modes de jeu implémentant les grilles.
 
 ### Tell don't ask
 
+> Dire à l’objet comment faire plutôt que d'interroger son état
+
+Ce principe, qui consiste à intégrer la logique d'un objet à l'intérieur de lui-même (tell), et non pas de l'effectuer en dehors (ask), est totalement respecté, ce qui permet de ne pas écrire plusieurs fois la même portion de code (ce qui serait, de plus, en violation du principe DRY (don’t repeat yourself))
+
+Par exemple, cette logique est implémentée dans une fonction dédiée dans l'objet Puissance4 : 
+
+```cpp
+void Puissance4::play_solo(int& symbol)
+{
+	bool player_win = false;
+	int winner;
+	bool ia = false;
+	while (!player_win)
+	{
+		display_grid();
+		if (ia)
+		{
+			tour_ia(symbol);
+			ia = true;
+		}
+		else
+		{
+			saisir_col(symbol);
+			ia = false;
+		}
+	}
+	end_screen(symbol, winner);
+}
+```
+
+### Loi de Déméter
+
+> « Ne parlez qu'à vos amis immédiats »
+
+Notre code n'utilise pas de suite d'appel de méthodes d'objets : pour faire une action ou récupérer une information, seule une méthode est appelée permettant d'effectuer ou remonter une information.
