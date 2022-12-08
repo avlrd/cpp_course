@@ -37,12 +37,13 @@ void Morpion::play_solo(int& symbol)
 	bool player_win = false;
 	int winner;
 	bool ia = false;
+	int ia_symbol = symbol == 1 ? 2 : 1;
 	while (!player_win)
 	{
 		display_grid();
 		if (ia == true)
 		{
-			tour_ia(symbol);
+			tour_ia(ia_symbol);
 			ia = false;
 		}
 		else
@@ -52,6 +53,7 @@ void Morpion::play_solo(int& symbol)
 		}
 		check_win(player_win, winner);
 	}
+	display_grid();
 	end_screen(symbol, winner);
 }
 
