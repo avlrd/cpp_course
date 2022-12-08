@@ -32,8 +32,8 @@ class Coordinates()
 	public:
 		inline int getX() const { return x; }
 		inline int getY() const { return y; }
-		inline void setX(int value) const { x = value; }
-		inline void setY(int value) const { y = value; }
+		inline void setX(int value) { x = value; }
+		inline void setY(int value) { y = value; }
 
 	private:
 		int x;
