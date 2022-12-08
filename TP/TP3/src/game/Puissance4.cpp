@@ -1,4 +1,4 @@
-#include "src/game/Puissance4.hpp"
+#include "Puissance4.hpp"
 
 Puissance4::Puissance4()
 {

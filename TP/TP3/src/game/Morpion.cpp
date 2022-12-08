@@ -40,15 +40,15 @@ void Morpion::play_solo(int& symbol)
 	while (!player_win)
 	{
 		display_grid();
-		if (ia)
+		if (ia == true)
 		{
 			tour_ia(symbol);
-			ia = true;
+			ia = false;
 		}
 		else
 		{
 			saisir_case(symbol);
-			ia = false;
+			ia = true;
 		}
 		check_win(player_win, winner);
 	}

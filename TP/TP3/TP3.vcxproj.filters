@@ -27,7 +27,7 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Puissance4.cpp">
+    <ClCompile Include="src\game\Puissance4.cpp">
       <Filter>src\game</Filter>
     </ClCompile>
   </ItemGroup>

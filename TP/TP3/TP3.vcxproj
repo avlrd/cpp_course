@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Puissance4.cpp" />
     <ClCompile Include="src\game\Morpion.cpp" />
+    <ClCompile Include="src\game\Puissance4.cpp" />
     <ClCompile Include="src\grid\Grid.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\utils\Utils.cpp" />
