@@ -142,11 +142,34 @@ void Puissance4::play_solo(int& symbol)
 
 > « Ne parlez qu'à vos amis immédiats »
 
-Notre code n'utilise pas de suite d'appel de méthodes d'objets : pour faire une action ou récupérer une information, seule une méthode est appelée permettant d'effectuer ou remonter une information, comme par exemple dans ```Grid``` :
+Notre code n'utilise pas de suite d'appel de méthodes d'objets : pour faire une action ou récupérer une information, seule une méthode est appelée permettant d'effectuer ou remonter une information, comme par exemple pour l'affichage de la grille, plutôt que de faire une méthode ```display``` seulement dans ```Grid```, on crée une méthode ```display_grid``` dans la classe ```Game``` qui l'appelle.
 
 ```cpp
-int Grid::get_width()
+(Morpion.cpp)
+
+void Morpion::play_multi(int& symbol)
 {
-	return (int) elements.size();
+	bool player_win = false;
+	int winner;
+	while (!player_win)
+	{
+		display_grid();
+		saisir_case(symbol);
+		check_win(player_win, winner);
+		if (symbol == 1)
+			symbol = 2;
+		else
+			symbol = 1;
+	}
+	end_screen(symbol, winner);
 }
+
+void Morpion::display_grid()
+{
+	grid->display();
+}
+
+(Grid.hpp)
+
+void display();
 ```
