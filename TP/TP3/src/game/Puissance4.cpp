@@ -45,12 +45,12 @@ void Puissance4::play_solo(int& symbol)
 		if (ia)
 		{
 			tour_ia(ia_symbol);
-			ia = true;
+			ia = false;
 		}
 		else
 		{
 			saisir_col(symbol);
-			ia = false;
+			ia = true;
 		}
 	}
 	display_grid();
