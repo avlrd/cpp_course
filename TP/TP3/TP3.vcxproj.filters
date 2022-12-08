@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{ab0262a7-bd78-41d7-8b16-915fe96516ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\grid">
+      <UniqueIdentifier>{158fd08e-6166-4ab7-b8d2-de871f618b84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{8dc67bbf-20ab-46d1-8f49-391b415d9a8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{43e1e3b6-d21f-46f9-a220-9ca1c98062b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\grid\Grid.cpp">
+      <Filter>src\grid</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Morpion.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Utils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Puissance4.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\grid\Grid.hpp">
+      <Filter>src\grid</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Game.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Morpion.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Puissance4.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Utils.hpp">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
