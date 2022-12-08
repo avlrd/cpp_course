@@ -142,8 +142,11 @@ void Puissance4::play_solo(int& symbol)
 
 > « Ne parlez qu'à vos amis immédiats »
 
-Notre code n'utilise pas de suite d'appel de méthodes d'objets : pour faire une action ou récupérer une information, seule une méthode est appelée permettant d'effectuer ou remonter une information, comme par exemple dans le ```main``` :
+Notre code n'utilise pas de suite d'appel de méthodes d'objets : pour faire une action ou récupérer une information, seule une méthode est appelée permettant d'effectuer ou remonter une information, comme par exemple dans ```Grid``` :
 
 ```cpp
-game->run(mode2);
+int Grid::get_width()
+{
+	return (int) elements.size();
+}
 ```
