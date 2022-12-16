@@ -1,0 +1,17 @@
+﻿  Morpion.cpp
+  Othello.cpp
+  Puissance4.cpp
+  Grid.cpp
+C:\Users\dubte\COURS A1\CPP\TP5 - Othello\cpp_course\TP\TP3\src\grid\Grid.cpp(39,19): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\dubte\COURS A1\CPP\TP5 - Othello\cpp_course\TP\TP3\src\grid\Grid.cpp(41,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\dubte\COURS A1\CPP\TP5 - Othello\cpp_course\TP\TP3\src\grid\Grid.cpp(63,19): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\dubte\COURS A1\CPP\TP5 - Othello\cpp_course\TP\TP3\src\grid\Grid.cpp(65,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\dubte\COURS A1\CPP\TP5 - Othello\cpp_course\TP\TP3\src\grid\Grid.cpp(68,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\dubte\COURS A1\CPP\TP5 - Othello\cpp_course\TP\TP3\src\grid\Grid.cpp(90,19): warning C4018: '<' : incompatibilité signed/unsigned
+  main.cpp
+  Utils.cpp
+  Génération de code en cours...
+Othello.obj : error LNK2001: symbole externe non résolu "public: virtual void __thiscall Othello::display_grid(void)" (?display_grid@Othello@@UAEXXZ)
+Othello.obj : error LNK2001: symbole externe non résolu "public: virtual void __thiscall Othello::check_win(bool &,int &)" (?check_win@Othello@@UAEXAA_NAAH@Z)
+Othello.obj : error LNK2019: symbole externe non résolu "private: void __thiscall Othello::tour_ia(int &)" (?tour_ia@Othello@@AAEXAAH@Z) référencé dans la fonction "private: void __thiscall Othello::play_solo(int &)" (?play_solo@Othello@@AAEXAAH@Z)
+C:\Users\dubte\COURS A1\CPP\TP5 - Othello\cpp_course\TP\TP3\Debug\TP3.exe : fatal error LNK1120: 3 externes non résolus

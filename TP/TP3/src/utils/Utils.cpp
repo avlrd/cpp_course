@@ -26,6 +26,29 @@ int stoi(char symbol)
 	}
 }
 
+void verif_IsIntegerBetween(int& number, int& number1, int& number2) 
+{
+
+	while (std::cin.fail() || number1 < 0 || number1 > number2)
+	{
+		std::cin.clear();
+		std::cin.ignore(256, '\n');
+		std::cout << "Please enter a valid number: ";
+		std::cin >> number1;
+	}
+}
+
+void verif_IsLetterBetween(char& letter, char& letter1, char& letter2)
+{
+	while (std::cin.fail() || letter < letter1 || letter > letter2)
+	{	
+		std::cin.clear();
+		std::cin.ignore(256, '\n');
+		std::cout << "Please enter a valid letter: ";
+		std::cin >> letter;
+	}
+}
+
 void choose_symbol(int& n)
 {
 	char symbol;
@@ -44,9 +67,10 @@ void main_menu(int& mode, int& mode2)
 	std::cout << "Veuillez choisir un jeu :\n";
 	std::cout << "\t- Morpion (1)\n";
 	std::cout << "\t- Puissance 4 (2)\n";
+	std::cout << "\t- Othello (3)\n";
 	std::cin >> safe;
 
-	while(safe != 1 && safe != 2)
+	while(safe != 1 && safe != 2 && safe != 3)
 	{
 		std::cout << "Entrée invalide.\n";
 		std::cin >> safe;
