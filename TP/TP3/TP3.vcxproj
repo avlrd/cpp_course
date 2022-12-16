@@ -17,18 +17,9 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Test|Win32">
-      <Configuration>Test</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Test|x64">
-      <Configuration>Test</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\Morpion.cpp" />
-    <ClCompile Include="src\game\Othello.cpp" />
     <ClCompile Include="src\game\Puissance4.cpp" />
     <ClCompile Include="src\grid\Grid.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -37,7 +28,6 @@
   <ItemGroup>
     <ClInclude Include="src\game\Game.hpp" />
     <ClInclude Include="src\game\Morpion.hpp" />
-    <ClInclude Include="src\game\Othello.hpp" />
     <ClInclude Include="src\game\Puissance4.hpp" />
     <ClInclude Include="src\grid\Grid.hpp" />
     <ClInclude Include="src\utils\Utils.hpp" />
@@ -75,12 +65,6 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
-    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">

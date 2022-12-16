@@ -30,9 +30,6 @@
     <ClCompile Include="src\game\Puissance4.cpp">
       <Filter>src\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\Othello.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\grid\Grid.hpp">
@@ -49,9 +46,6 @@
     </ClInclude>
     <ClInclude Include="src\utils\Utils.hpp">
       <Filter>src\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\Othello.hpp">
-      <Filter>src\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

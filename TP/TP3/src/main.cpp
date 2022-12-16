@@ -1,9 +1,7 @@
 #include "game/Game.hpp"
 #include "game/Morpion.hpp"
 #include "game/Puissance4.hpp"
-#include "game/Othello.hpp"
 #include "utils/Utils.hpp"
-
 
 int main()
 {
@@ -12,23 +10,19 @@ int main()
 	main_menu(mode, mode2);
 	Game* game = nullptr;
 
-	switch (mode)
+	switch(mode)
 	{
-	default:
-		std::cerr << "Unknown error.\n";
-		break;
+		default:
+			std::cerr << "Unknown error.\n";
+			break;
 
-	case 1:
-		game = new Morpion();
-		break;
-
-	case 2:
-		game = new Puissance4();
-		break;
-
-	case 3:
-		game = new Othello();
-		break;
+		case 1:
+			game = new Morpion();
+			break;
+			
+		case 2:
+			game = new Puissance4();
+			break;
 	}
 
 	game->run(mode2);
