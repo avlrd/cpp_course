@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\Morpion.cpp" />
+    <ClCompile Include="src\game\Othello.cpp" />
     <ClCompile Include="src\game\Puissance4.cpp" />
     <ClCompile Include="src\grid\Grid.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -28,6 +29,7 @@
   <ItemGroup>
     <ClInclude Include="src\game\Game.hpp" />
     <ClInclude Include="src\game\Morpion.hpp" />
+    <ClInclude Include="src\game\Othello.hpp" />
     <ClInclude Include="src\game\Puissance4.hpp" />
     <ClInclude Include="src\grid\Grid.hpp" />
     <ClInclude Include="src\utils\Utils.hpp" />

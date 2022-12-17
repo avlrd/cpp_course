@@ -1,6 +1,7 @@
 #include "game/Game.hpp"
 #include "game/Morpion.hpp"
 #include "game/Puissance4.hpp"
+#include "game/Othello.hpp"
 #include "utils/Utils.hpp"
 
 int main()
@@ -22,6 +23,10 @@ int main()
 			
 		case 2:
 			game = new Puissance4();
+			break;
+			
+		case 3:
+			game = new Othello();
 			break;
 	}
 
