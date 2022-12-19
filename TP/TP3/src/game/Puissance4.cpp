@@ -90,6 +90,7 @@ void Puissance4::saisir_col(int& symbol)
 	{
 		std::cout << "Choose a column (1-7):";
 		std::cin >> col;
+		verif_IsIntegerBetween(col, 1, 7);
 		col--;
 		for (int i = 5; i >= 0; i--)
 		{

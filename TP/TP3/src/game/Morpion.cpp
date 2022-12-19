@@ -77,20 +77,15 @@ void Morpion::play_multi(int& symbol)
 void Morpion::saisir_case(int& symbol)
 {
 	int s;
-	int safe = 0;
 	if(symbol == 1)
 		std::cout << "Joueur 1 (X)\n";
 	else
 		std::cout << "Joueur 2 (O)\n";
-	while (!safe)
-	{
+
 		std::cout << "Entrez le numéro de la case dans laquelle vous voulez placer votre symbole : (1-9).\n";
 		std::cin >> s;
-		if (s < 1 || s > 9 || grid->get_element_by_index(s-1) != 0)
-			std::cout << "Entrée invalide.\n";
-		else
-			safe = 1;
-	}
+		verif_IsIntegerBetween(s, 1, 9);
+
 	grid->set_element_by_index(s-1, symbol);
 }
 

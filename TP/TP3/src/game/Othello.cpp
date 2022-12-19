@@ -85,14 +85,12 @@ void Othello::saisir_case(int& symbol)
 	verif_IsIntegerBetween(line, 1, 8);
 	verif_IsLetterBetween(column_char, 'A', 'H');
 	
-
-
 	//convertion de la lettre colonne en chiffre de 0 à 7
 	int column = column_char - 65;
 	line -= 1;
 
-	if (empty_case(column, line)) {
-		grid->set_element(column, line, symbol);
+	if (empty_case(line, column)) {
+		grid->set_element(line, column, symbol);
 	}
 	else
 	{
