@@ -40,6 +40,8 @@ void Othello::play_solo(int& symbol)
 	int ia_symbol = symbol == 1 ? 2 : 1;
 	while (!player_win)
 	{
+		int column = 0;
+		int line = 0;
 		display_grid();
 		if (ia == true)
 		{
@@ -48,7 +50,7 @@ void Othello::play_solo(int& symbol)
 		}
 		else
 		{
-			saisir_case(symbol);
+			saisir_case(symbol, column, line);
 			ia = true;
 		}
 		check_win(player_win, winner);
@@ -63,9 +65,13 @@ void Othello::play_multi(int& symbol)
 	int winner;
 	while (!player_win)
 	{
+		int column = 0;
+		int line = 0;
 		display_grid();
-		saisir_case(symbol);
-		check_win(player_win, winner);
+		saisir_case(symbol, column, line);
+		replace_symbolBetween(symbol, column, line);
+		
+		//inversement des joueurs pour prochain tour
 		if (symbol == 1)
 			symbol = 2;
 		else
@@ -74,19 +80,18 @@ void Othello::play_multi(int& symbol)
 	end_screen(symbol, winner);
 }
 
-void Othello::saisir_case(int& symbol)
+void Othello::saisir_case(int& symbol, int& column, int& line)
 {
 	char column_char;
-	int line;
 	std::cout << "Enter the column (A to H) and the line (1 to 8) of the case you want to play.\n";
 	std::cin >> column_char >> line;
 
 	//vérif des entrées
-	verif_IsIntegerBetween(line, 1, 8);
 	verif_IsLetterBetween(column_char, 'A', 'H');
+	verif_IsIntegerBetween(line, 1, 8);
 	
 	//convertion de la lettre colonne en chiffre de 0 à 7
-	int column = column_char - 65;
+	column = column_char - 65;
 	line -= 1;
 
 	if (empty_case(line, column)) {
@@ -95,20 +100,31 @@ void Othello::saisir_case(int& symbol)
 	else
 	{
 		std::cout << "Please choose an empty case.\n";
-		saisir_case(symbol);
+		saisir_case(symbol, column, line);
 	}
-
-
-
 }
 
-//inversement des symboles placés entre le dernier symbole joué et un symbole du même type dans les 8 directions
-/*
+
 void Othello::replace_symbolBetween(int& symbol, int& column, int& line)
 {
+	// *** FONCTIONNEMENT METHODE *** //
+	//1. verifie dans les 8 directions si il y a un symbole du même type, note la position dans un tableau last_symbol
+	//2. remplace les symboles entre la case jouée et la position de last_symbol pour chaque direction
+	
+	std::cout << "Entering replace_symbolBetween" << std::endl;
 
+	int directions[8][2] = { {0,1}, {1,1}, {1,0}, {1,-1}, {0,-1}, {-1,-1}, {-1,0}, {-1,1} };
+	int last_symbol[8][2] = { {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0} };
+	
+	//1.
+	//pour les 8 directions
+	for (int i = 0; i < 8; i++)
+	{
+		//check_direction(i);
+	}
 }
-*/
+	
+
 
 //vérifie si la case est vide
 bool Othello::empty_case(int& column, int& line)
@@ -124,9 +140,39 @@ bool Othello::empty_case(int& column, int& line)
 }
 
 void Othello::check_win(bool& checker, int& winner) {
-	//vérifie si le joueur a gagné
-	//compte le nombre de x et de o pour les comparer : celui qui a le plus de symboles sur le plateau a gagné
-	//(la partie prend fin que lorsque le plateau est rempli)
+	int x = 0;
+	int o = 0;
+	
+	//parcours la grille et compte le nombre de chaque symbole
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if (grid->get_element(i, j) == 1)
+			{
+				x++;
+			}
+			else if (grid->get_element(i, j) == 2)
+			{
+				o++;
+			}
+		}
+	}
+	
+	if (x > o)
+	{
+		winner = 1;
+		checker = true;
+	}
+	else if (x < o)
+	{
+		winner = 2;
+		checker = true;
+	}
+	else
+	{
+		checker = false;
+	}
 }
 
 void Othello::display_grid()
