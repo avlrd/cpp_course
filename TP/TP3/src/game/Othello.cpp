@@ -15,7 +15,7 @@ void Othello::run(int& mode)
 	switch (mode)
 	{
 	default:
-		std::cerr << "Mode switcher error.\n";
+		verif_IsIntegerBetween(mode, 1, 2);
 		break;
 
 	case 1:
@@ -81,7 +81,10 @@ void Othello::saisir_case(int& symbol)
 	std::cout << "Enter the column (A to H) and the line (1 to 8) of the case you want to play.\n";
 	std::cin >> column_char >> line;
 
-	//*************** verif à faire des entrées ******************//
+	//vérif des entrées
+	verif_IsIntegerBetween(line, 1, 8);
+	verif_IsLetterBetween(column_char, 'A', 'H');
+	
 
 
 	//convertion de la lettre colonne en chiffre de 0 à 7

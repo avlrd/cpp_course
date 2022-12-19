@@ -22,23 +22,23 @@ int stoi(char symbol)
 		break;
 	default:
 		return -1;
+		std::cout << "error in switch stoi : symbol = " << symbol << std::endl;
 		break;
 	}
 }
 
-void verif_IsIntegerBetween(int& number, int& number1, int& number2)
+void verif_IsIntegerBetween(int& number, int number1, int number2)
 {
-
-	while (std::cin.fail() || number1 < 0 || number1 > number2)
+	while (std::cin.fail() || number < number1 || number > number2)
 	{
 		std::cin.clear();
 		std::cin.ignore(256, '\n');
 		std::cout << "Please enter a valid number: ";
-		std::cin >> number1;
+		std::cin >> number;
 	}
 }
 
-void verif_IsLetterBetween(char& letter, char& letter1, char& letter2)
+void verif_IsLetterBetween(char& letter, char letter1, char letter2)
 {
 	while (std::cin.fail() || letter < letter1 || letter > letter2)
 	{
@@ -49,12 +49,27 @@ void verif_IsLetterBetween(char& letter, char& letter1, char& letter2)
 	}
 }
 
+char verif_IsSymbolRight(char& symbol)
+{
+	while (std::cin.fail() || (symbol != 'x' && symbol != 'X' && symbol != 'o' && symbol != 'O'))
+	{
+		std::cin.clear();
+		std::cin.ignore(256, '\n');
+		std::cout << "Please enter a valid symbol: ";
+		std::cin >> symbol;
+	}
+	return symbol;
+}
+
 void choose_symbol(int& n)
 {
 	char symbol;
 	std::cout << "Choose your symbol : X/O\n";
 	std::cin >> symbol;
+
+	symbol = toupper(verif_IsSymbolRight(symbol));
 	n = stoi(symbol);
+	
 	std::cout << "You are playing with " << symbol << ".\n";
 }
 
@@ -70,13 +85,9 @@ void main_menu(int& mode, int& mode2)
 	std::cout << "\t- Othello (3)\n";
 	std::cin >> safe;
 
-	while(safe != 1 && safe != 2 && safe != 3)
-	{
-		std::cout << "Entrée invalide.\n";
-		std::cin >> safe;
-	}
-	mode = safe;
+	verif_IsIntegerBetween(safe, 1, 3);
 
+	mode = safe;
 	clear_screen();
 
 	std::cout << "Veuillez choisir le mode de jeu :\n";
@@ -84,11 +95,8 @@ void main_menu(int& mode, int& mode2)
 	std::cout << "\t- Multijoueur (2)\n";
 	std::cin >> safe;
 
-	while(safe != 1 && safe != 2)
-	{
-		std::cout << "Entrée invalide.\n";
-		std::cin >> safe;
-	}
+	verif_IsIntegerBetween(safe, 1, 2);
+	
 	mode2 = safe;
 	clear_screen();
 }
