@@ -43,7 +43,7 @@ void Othello::play_solo(int& symbol)
 		display_grid();
 		if (ia == true)
 		{
-			tour_ia(ia_symbol);
+			//tour_ia(ia_symbol);
 			ia = false;
 		}
 		else
@@ -120,4 +120,15 @@ bool Othello::empty_case(int& column, int& line)
 	{
 		return false;
 	}
+}
+
+void Othello::check_win(bool& checker, int& winner) {
+	//vérifie si le joueur a gagné
+	//compte le nombre de x et de o pour les comparer : celui qui a le plus de symboles sur le plateau a gagné
+	//(la partie prend fin que lorsque le plateau est rempli)
+}
+
+void Othello::display_grid()
+{
+	grid->display();
 }
