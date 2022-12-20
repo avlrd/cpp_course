@@ -23,15 +23,22 @@
     <ClCompile Include="src\game\Othello.cpp" />
     <ClCompile Include="src\game\Puissance4.cpp" />
     <ClCompile Include="src\grid\Grid.cpp" />
+    <ClCompile Include="src\grid\GridCell.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\player\Player.cpp" />
     <ClCompile Include="src\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\game\EGame.hpp" />
     <ClInclude Include="src\game\Game.hpp" />
+    <ClInclude Include="src\game\GameState.hpp" />
     <ClInclude Include="src\game\Morpion.hpp" />
     <ClInclude Include="src\game\Othello.hpp" />
     <ClInclude Include="src\game\Puissance4.hpp" />
+    <ClInclude Include="src\grid\ECellValue.hpp" />
     <ClInclude Include="src\grid\Grid.hpp" />
+    <ClInclude Include="src\grid\GridCell.hpp" />
+    <ClInclude Include="src\player\Player.hpp" />
     <ClInclude Include="src\utils\Utils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

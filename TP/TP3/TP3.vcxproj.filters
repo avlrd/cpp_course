@@ -33,6 +33,8 @@
     <ClCompile Include="src\game\Othello.cpp">
       <Filter>src\game</Filter>
     </ClCompile>
+    <ClCompile Include="src\grid\GridCell.cpp" />
+    <ClCompile Include="src\player\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\grid\Grid.hpp">
@@ -51,6 +53,13 @@
       <Filter>src\utils</Filter>
     </ClInclude>
     <ClInclude Include="src\game\Othello.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\EGame.hpp" />
+    <ClInclude Include="src\grid\ECellValue.hpp" />
+    <ClInclude Include="src\grid\GridCell.hpp" />
+    <ClInclude Include="src\player\Player.hpp" />
+    <ClInclude Include="src\game\GameState.hpp">
       <Filter>src\game</Filter>
     </ClInclude>
   </ItemGroup>

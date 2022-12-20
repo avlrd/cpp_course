@@ -3,6 +3,7 @@
 #include "game/Puissance4.hpp"
 #include "game/Othello.hpp"
 #include "utils/Utils.hpp"
+#include "game/GameState.hpp"
 
 int main()
 {
@@ -33,4 +34,14 @@ int main()
 	game->run(mode2);
 
 	return 0;
+}
+
+int main()
+{
+	GameState game = GameState();
+	
+	while (true)
+	{
+		
+	}
 }
