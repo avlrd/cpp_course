@@ -27,6 +27,24 @@ int stoi(char symbol)
 	}
 }
 
+//integer to symbol
+char itos(int number)
+{
+	switch (number)
+	{
+	case 1:
+		return 'X';
+		break;
+	case 2:
+		return 'O';
+		break;
+	default:
+		return ' ';
+		std::cout << "error in switch itos : number = " << number << std::endl;
+		break;
+	}
+}
+
 void verif_IsIntegerBetween(int& number, int number1, int number2)
 {
 	while (std::cin.fail() || number < number1 || number > number2)
@@ -104,9 +122,9 @@ void main_menu(int& mode, int& mode2)
 void end_screen(int& symbol, int& winner)
 {
 	if(symbol == winner)
-		std::cout << "Victoire !\n";
+		std::cout << "Victoire des " << itos(symbol) << " !\n";
 	else
-		std::cout << "Défaite...\n";
+		std::cout << "Défaite des " << itos(symbol) << " !\n";
 
 	
 	char ask;

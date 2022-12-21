@@ -21,12 +21,14 @@ void Othello::run(int& mode)
 	case 1:
 		std::cout << "You are playing against the computer.\n";
 		choose_symbol(symbol);
+		set_start_case();
 		play_solo(symbol);
 		break;
 
 	case 2:
 		std::cout << "You are playing against another player.\n";
 		choose_symbol(symbol);
+		set_start_case();
 		play_multi(symbol);
 		break;
 	}
@@ -45,12 +47,14 @@ void Othello::play_solo(int& symbol)
 		display_grid();
 		if (ia == true)
 		{
-			//tour_ia(ia_symbol);
+			tour_ia(ia_symbol);
+			replace_symbolBetween(ia_symbol, column, line);
 			ia = false;
 		}
 		else
 		{
 			saisir_case(symbol, column, line);
+			replace_symbolBetween(symbol, column, line);
 			ia = true;
 		}
 		check_win(player_win, winner);
@@ -70,12 +74,10 @@ void Othello::play_multi(int& symbol)
 		display_grid();
 		saisir_case(symbol, column, line);
 		replace_symbolBetween(symbol, column, line);
+		check_win(player_win, winner);
 		
-		//inversement des joueurs pour prochain tour
-		if (symbol == 1)
-			symbol = 2;
-		else
-			symbol = 1;
+		//switch le symbole 
+		symbol = symbol == 1 ? 2 : 1;
 	}
 	end_screen(symbol, winner);
 }
@@ -104,7 +106,6 @@ void Othello::saisir_case(int& symbol, int& column, int& line)
 	}
 }
 
-
 void Othello::replace_symbolBetween(int& symbol, int& column, int& line)
 {
 	// *** FONCTIONNEMENT METHODE *** //
@@ -124,42 +125,35 @@ void Othello::replace_symbolBetween(int& symbol, int& column, int& line)
 		bool other_symbol_found = false;
 		bool same_symbol_found = false;
 
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//DOING éviter de sortir du tableau lorsque on ignore la position de la case jouée (faire un if ?)
 
-
-
 		//ignore la position de la case jouée en appliquant la direction
-		try
+		if (column + directions[i][0] >= 0 && column + directions[i][0] <= 7 && line + directions[i][1] >= 0 && line + directions[i][1] <= 7)
 		{
-			std::cout << "try " << i << " ignoring actual case" << std::endl; // crash ici
 			x += directions[i][0];
 			y += directions[i][1];
 		}
-		catch (const std::exception&)
+		else
 		{
-			continue;
+			other_symbol_found = false;
+			break;
 		}
-
-
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		// tant que la case n'est pas vide et que le symbole n'est pas le même que celui joué ou lui-même
 		while (grid->get_element(y, x) != 0 && grid->get_element(y, x) != symbol)
-		{	
-			std::cout << "Other symbol found at x = " << x << " y = " << y << std::endl;
-			try
+		{
+			if (x + directions[i][0] >= 0 && x + directions[i][0] <= 7 && y + directions[i][1] >= 0 && y + directions[i][1] <= 7)
 			{
-				std::cout << "try " << i << " direction" << std::endl;
+				std::cout << "Other symbol found at x = " << x << " y = " << y << std::endl;
 				x += directions[i][0];
 				y += directions[i][1];
-			}
-			catch (const std::exception&) 
-			{
 				other_symbol_found = true;
+			}
+			else
+			{
+				other_symbol_found = false;
 				break;
-			}	
-			other_symbol_found = true;
+			}
 		}
 
 		//si le symbole est le même que celui joué et qu'un autre symbole a été trouvé avant
@@ -187,6 +181,51 @@ void Othello::replace_symbolBetween(int& symbol, int& column, int& line)
 	}
 }
 
+//tour ia
+void Othello::tour_ia(int& symbol)
+{
+	//place le symbole dans une case aléatoire
+	int column = rand() % 8;
+	int line = rand() % 8;
+	while (!empty_case(line, column))
+	{
+		column = rand() % 8;
+		line = rand() % 8;
+	}
+	grid->set_element(line, column, symbol);
+}
+
+
+
+
+//retourne true si la direction donne sur une case à l'intérieur du tableau
+/*
+bool Othello::direction_inside_grid(int& column, int& line, int direction[2]) //probleme au niveau du tableau en paramètre
+{
+	if (direction[0] == 0)
+	{
+		if (line + direction[1] >= 0 && line + direction[1] <= 7)
+			return true;
+		else
+			return false;
+	}
+	else if (direction[1] == 0)
+	{
+		if (column + direction[0] >= 0 && column + direction[0] <= 7)
+			return true;
+		else
+			return false;
+	}
+	else
+	{
+		if (column + direction[0] >= 0 && column + direction[0] <= 7 && line + direction[1] >= 0 && line + direction[1] <= 7)
+			return true;
+		else
+			return false;
+	}
+}
+*/
+
 //vérifie si la case est vide
 bool Othello::empty_case(int& column, int& line)
 {
@@ -201,6 +240,7 @@ bool Othello::empty_case(int& column, int& line)
 }
 
 void Othello::check_win(bool& checker, int& winner) {
+
 	int x = 0;
 	int o = 0;
 	
@@ -219,21 +259,32 @@ void Othello::check_win(bool& checker, int& winner) {
 			}
 		}
 	}
-	
-	if (x > o)
+
+	//si nombre de symbole dans le tableau = 64
+	if (x + o == 64)
 	{
-		winner = 1;
 		checker = true;
+		if (x > o)
+		{
+			winner = 1;
+		}
+		else if (x < o)
+		{
+			winner = 2;
+		}
+		else
+		{
+			winner = 0;
+		}
 	}
-	else if (x < o)
-	{
-		winner = 2;
-		checker = true;
-	}
-	else
-	{
-		checker = false;
-	}
+}
+
+void Othello::set_start_case() 
+{
+		grid->set_element(3, 3, 1);
+		grid->set_element(3, 4, 2);
+		grid->set_element(4, 3, 2);
+		grid->set_element(4, 4, 1);
 }
 
 void Othello::display_grid()

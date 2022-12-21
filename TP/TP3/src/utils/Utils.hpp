@@ -8,6 +8,9 @@ void clear_screen();
 //Symbol to integer converter
 int stoi(char symbol);
 
+//integer to symbol converter
+char itos(int number);
+
 //Verifies if the input is an integer included between two numbers
 void verif_IsIntegerBetween(int& number, int number1, int number2);
 
