@@ -195,37 +195,6 @@ void Othello::tour_ia(int& symbol)
 	grid->set_element(line, column, symbol);
 }
 
-
-
-
-//retourne true si la direction donne sur une case à l'intérieur du tableau
-/*
-bool Othello::direction_inside_grid(int& column, int& line, int direction[2]) //probleme au niveau du tableau en paramètre
-{
-	if (direction[0] == 0)
-	{
-		if (line + direction[1] >= 0 && line + direction[1] <= 7)
-			return true;
-		else
-			return false;
-	}
-	else if (direction[1] == 0)
-	{
-		if (column + direction[0] >= 0 && column + direction[0] <= 7)
-			return true;
-		else
-			return false;
-	}
-	else
-	{
-		if (column + direction[0] >= 0 && column + direction[0] <= 7 && line + direction[1] >= 0 && line + direction[1] <= 7)
-			return true;
-		else
-			return false;
-	}
-}
-*/
-
 //vérifie si la case est vide
 bool Othello::empty_case(int& column, int& line)
 {
