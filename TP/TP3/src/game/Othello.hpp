@@ -18,7 +18,6 @@ private:
 	void play_solo(int& symbol);
 	void play_multi(int& symbol);
 	void saisir_case(int& symbol, int& column, int& line);
-	bool direction_inside_grid(int& column, int& line, int& direction);
 	bool empty_case(int& column, int& line);
 	void tour_ia(int& symbol);
 };

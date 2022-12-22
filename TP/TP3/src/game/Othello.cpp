@@ -115,19 +115,17 @@ void Othello::replace_symbolBetween(int& symbol, int& column, int& line)
 	int directions[8][2] = { {0,1}, {1,1}, {1,0}, {1,-1}, {0,-1}, {-1,-1}, {-1,0}, {-1,1} };
 	int last_symbol[8][2] = { {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0} };
 	
-	std::cout << "Position of the symbol played  : x = " << column << " y = " << line << " | Symbole : " << grid->get_element(line, column) << std::endl;
+	//std::cout << "Position of the symbol played  : x = " << column << " y = " << line << " | Symbole : " << grid->get_element(line, column) << std::endl;
 	
-	//1. verifie dans les 8 directions si il y a un symbole du même type, note la position dans un tableau last_symbol
+	// pour chacune des direction
 	for (int i = 0; i < 8; i++)
 	{
-		int x = column;
+		int x = column; 
 		int y = line;
 		bool other_symbol_found = false;
 		bool same_symbol_found = false;
-
-		//DOING éviter de sortir du tableau lorsque on ignore la position de la case jouée (faire un if ?)
-
-		//ignore la position de la case jouée en appliquant la direction
+		
+		// ignore la position de la case jouée en appliquant une fois la direction
 		if (column + directions[i][0] >= 0 && column + directions[i][0] <= 7 && line + directions[i][1] >= 0 && line + directions[i][1] <= 7)
 		{
 			x += directions[i][0];
@@ -144,7 +142,7 @@ void Othello::replace_symbolBetween(int& symbol, int& column, int& line)
 		{
 			if (x + directions[i][0] >= 0 && x + directions[i][0] <= 7 && y + directions[i][1] >= 0 && y + directions[i][1] <= 7)
 			{
-				std::cout << "Other symbol found at x = " << x << " y = " << y << std::endl;
+				//std::cout << "Other symbol found at x = " << x << " y = " << y << std::endl;
 				x += directions[i][0];
 				y += directions[i][1];
 				other_symbol_found = true;
@@ -159,16 +157,16 @@ void Othello::replace_symbolBetween(int& symbol, int& column, int& line)
 		//si le symbole est le même que celui joué et qu'un autre symbole a été trouvé avant
 		if (grid->get_element(y, x) == symbol && other_symbol_found == true)
 		{
-			std::cout << "Same symbol found at x = " << x << " y = " << y << std::endl;
+			//std::cout << "Same symbol found at x = " << x << " y = " << y << std::endl;
 			last_symbol[i][0] = x;
 			last_symbol[i][1] = y;
 			same_symbol_found = true;
 		}
 		
-		//2. remplace les symboles entre la case jouée et la position de last_symbol s'ils existent
+		// remplace les symboles entre la case jouée et la position de last_symbol s'ils existent
 		if (other_symbol_found && same_symbol_found)
 		{
-			std::cout << "Replace symbols between x = " << column << " y = " << line << " and x = " << last_symbol[i][0] << " y = " << last_symbol[i][1] << std::endl;
+			//std::cout << "Replace symbols between x = " << column << " y = " << line << " and x = " << last_symbol[i][0] << " y = " << last_symbol[i][1] << std::endl;
 			int x = column;
 			int y = line;
 			while (x != last_symbol[i][0] || y != last_symbol[i][1])

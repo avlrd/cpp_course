@@ -58,12 +58,15 @@ void verif_IsIntegerBetween(int& number, int number1, int number2)
 
 void verif_IsLetterBetween(char& letter, char letter1, char letter2)
 {
+	letter = toupper(letter);
+	
 	while (std::cin.fail() || letter < letter1 || letter > letter2)
 	{
 		std::cin.clear();
 		std::cin.ignore(256, '\n');
 		std::cout << "Please enter a valid letter: ";
 		std::cin >> letter;
+		letter = toupper(letter);
 	}
 }
 
