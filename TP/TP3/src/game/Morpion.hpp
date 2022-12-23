@@ -9,7 +9,6 @@ class Morpion : public Game
 		~Morpion();
 
 		void run(int& mode);
-		void display_grid();
 		void check_win(bool& checker, int& winner);
 	
 	private:

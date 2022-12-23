@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\game\GameState.cpp" />
     <ClCompile Include="src\game\Morpion.cpp" />
     <ClCompile Include="src\game\Othello.cpp" />
     <ClCompile Include="src\game\Puissance4.cpp" />
@@ -26,6 +27,7 @@
     <ClCompile Include="src\grid\GridCell.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\player\Player.cpp" />
+    <ClCompile Include="src\ui\CLI.cpp" />
     <ClCompile Include="src\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -38,7 +40,10 @@
     <ClInclude Include="src\grid\ECellValue.hpp" />
     <ClInclude Include="src\grid\Grid.hpp" />
     <ClInclude Include="src\grid\GridCell.hpp" />
+    <ClInclude Include="src\player\IA.hpp" />
     <ClInclude Include="src\player\Player.hpp" />
+    <ClInclude Include="src\ui\CLI.hpp" />
+    <ClInclude Include="src\ui\UserInterface.hpp" />
     <ClInclude Include="src\utils\Utils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

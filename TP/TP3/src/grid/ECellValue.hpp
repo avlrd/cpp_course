@@ -2,7 +2,7 @@
 
 enum ECellValue
 {
-	Empty,
+	EMPTY,
 	X,
 	O
 };

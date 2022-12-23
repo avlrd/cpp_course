@@ -102,11 +102,6 @@ void Morpion::tour_ia(int& symbol)
 	grid->set_element_by_index(s, symbol);
 }
 
-void Morpion::display_grid()
-{
-	grid->display();
-}
-
 bool Morpion::check_rows(int& winner)
 {
 	for(int i = 0; i < grid->get_width(); i++)

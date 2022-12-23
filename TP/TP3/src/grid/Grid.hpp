@@ -4,24 +4,21 @@
 #include <thread>
 #include <chrono>
 #include <vector>
-#include "../utils/Vec2.hpp"
+
+#include "GridCell.hpp"
 
 class Grid
 {
 	public:
 		Grid(int x, int y);
-		~Grid();
+		//no destructor needed cause std vector deletes itself ?	
 
-		int get_element(int x, int y);
-		int get_element_by_index(int index);
-		void set_element(int x, int y, int value);
-		void set_element_by_index(int index, int value);
+		GridCell get_element(int l, int c);
+		void set_element(int l, int c, ECellValue value);
 		
 		int get_width();
 		int get_height();
 
-		void display();
-
 	private:
-		std::vector<std::vector<int>> elements;
+		std::vector<std::vector<GridCell>> elements;
 };

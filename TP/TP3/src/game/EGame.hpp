@@ -2,12 +2,15 @@
 
 enum EGameMode
 {
+	NONE,
 	SOLO,
-	MULTI
+	MULTI,
+	BACK
 };
 
 enum EGameType
 {
+	NONE,
 	MORPION,
 	PUISSANCE4,
 	OTHELLO

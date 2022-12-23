@@ -13,6 +13,12 @@
     <Filter Include="src\utils">
       <UniqueIdentifier>{43e1e3b6-d21f-46f9-a220-9ca1c98062b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\player">
+      <UniqueIdentifier>{a5c623b4-54b1-4a17-b2c8-9bd1e2664e4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui">
+      <UniqueIdentifier>{c805c483-cc6c-4fce-9f50-b7ff7cadb2ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\grid\Grid.cpp">
@@ -33,8 +39,18 @@
     <ClCompile Include="src\game\Othello.cpp">
       <Filter>src\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\grid\GridCell.cpp" />
-    <ClCompile Include="src\player\Player.cpp" />
+    <ClCompile Include="src\grid\GridCell.cpp">
+      <Filter>src\grid</Filter>
+    </ClCompile>
+    <ClCompile Include="src\player\Player.cpp">
+      <Filter>src\player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\CLI.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\GameState.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\grid\Grid.hpp">
@@ -55,12 +71,29 @@
     <ClInclude Include="src\game\Othello.hpp">
       <Filter>src\game</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\EGame.hpp" />
-    <ClInclude Include="src\grid\ECellValue.hpp" />
-    <ClInclude Include="src\grid\GridCell.hpp" />
-    <ClInclude Include="src\player\Player.hpp" />
     <ClInclude Include="src\game\GameState.hpp">
       <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\grid\ECellValue.hpp">
+      <Filter>src\grid</Filter>
+    </ClInclude>
+    <ClInclude Include="src\grid\GridCell.hpp">
+      <Filter>src\grid</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\EGame.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\player\Player.hpp">
+      <Filter>src\player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\CLI.hpp">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\UserInterface.hpp">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\player\IA.hpp">
+      <Filter>src\player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
