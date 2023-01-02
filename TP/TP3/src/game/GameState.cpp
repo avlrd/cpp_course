@@ -11,6 +11,18 @@ void GameState::init()
 	}
 }
 
+void GameState::start_game()
+{
+	switch (game_type)
+	{
+		case EGameType::MORPION:
+		{
+			Morpion morpion();
+			break;
+		}
+	}
+}
+
 void GameState::intro()
 {
 	ui.welcome();
