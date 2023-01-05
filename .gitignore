@@ -1,7 +1,18 @@
-pdf
+# Visual Studio files
 *.vs
-*.vscode
 x64
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+.editorconfig
+
+# Visual Studio Code files
+*.vscode
+
+# CMake & Make files
 Makefile
 CMakeLists.txt
+
+# Build files
 build
