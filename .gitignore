@@ -2,3 +2,6 @@ pdf
 *.vs
 *.vscode
 x64
+Makefile
+CMakeLists.txt
+build
