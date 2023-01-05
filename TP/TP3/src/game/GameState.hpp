@@ -19,7 +19,7 @@ class GameState
 			: ui(ui)
 		{
 			replay = true;
-			game_type = EGameType::NONE;
+			game_type = EGameType::UNKNOWN;
 			game_mode = EGameMode::NONE;
 		}
 

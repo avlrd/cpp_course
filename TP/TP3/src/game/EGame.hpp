@@ -10,7 +10,7 @@ enum EGameMode
 
 enum EGameType
 {
-	NONE,
+	UNKNOWN,
 	MORPION,
 	PUISSANCE4,
 	OTHELLO

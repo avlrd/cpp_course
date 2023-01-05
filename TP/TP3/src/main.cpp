@@ -10,7 +10,7 @@ int main()
 {
 	//get arg from command line and put it into ui var
 	
-	UserInterface ui(CommandLineInterface());
+	UserInterface& ui(CommandLineInterface());
 	GameState instance = GameState(ui);
 	
 	while (instance.replay_value())

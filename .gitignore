@@ -1,4 +1,7 @@
+Makefile
 pdf
 *.vs
 *.vscode
 x64
+build
+CMakeLists.txt

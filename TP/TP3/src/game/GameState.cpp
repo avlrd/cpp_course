@@ -17,7 +17,7 @@ void GameState::start_game()
 	{
 		case EGameType::MORPION:
 		{
-			Morpion morpion();
+			//Morpion morpion();
 			break;
 		}
 	}
@@ -38,7 +38,7 @@ void GameState::game_menu()
 			while (!game_type_selected)
 			{
 				game_type_selection();
-				if (game_type != EGameType::NONE)
+				if (game_type != EGameType::UNKNOWN)
 					game_type_selected = true;
 				else
 					menu_selection_error();
@@ -196,7 +196,7 @@ void GameState::menu_selection_error()
 bool GameState::ready_check()
 {
 	//ajouter verif players
-	if (game_type != EGameType::NONE && game_mode != EGameMode::NONE && player1.get_symbol() != player2.get_symbol())
+	if (game_type != EGameType::UNKNOWN && game_mode != EGameMode::NONE && player1.get_symbol() != player2.get_symbol())
 		return true;
 	return false;
 }
